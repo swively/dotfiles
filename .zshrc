@@ -1,12 +1,3 @@
-# Set up the prompt
-if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
-  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
-fi
-
-#autoload -Uz promptinit
-#promptinit
-#prompt adam1
-
 setopt histignorealldups sharehistory
 
 # Use vim keybindings in shell
@@ -33,7 +24,6 @@ zstyle ':completion:*' completer _expand _complete _correct _approximate
 zstyle ':completion:*' format 'Completing %d'
 zstyle ':completion:*' group-name ''
 zstyle ':completion:*' menu select=2
-eval "$(dircolors -b)"
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*' list-colors ''
 zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
@@ -63,8 +53,7 @@ alias gcb="git checkout -b "
 alias gco="git checkout "
 alias berc="be rails c"
 
-xset r rate 200 80
-
 export PATH=/home/mike/bin:$PATH
 
 source ~/.zsh/utils.zsh
+source ~/.zsh/prompt.zsh
