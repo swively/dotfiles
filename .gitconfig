@@ -1,0 +1,26 @@
+[user]
+	email = mikeyconlin@gmail.com
+	name = Mike Conlin
+[github]
+  user = swively
+[core]
+	editor = vim
+	excludesfile = /home/mike/.gitignore_global
+[alias]
+  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cd) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+  pr = "!f() { git log --merges --ancestry-path --oneline $1..master | grep 'pull request' | tail -n1 | awk '{ print $5 }'; }; f"
+  c = commit -v
+  ca = commit -v --amend
+  co = checkout
+  cb = checkout -b
+  d = diff --color
+  ds = diff --color --staged
+  rim = rebase -i master
+  s = status -s
+  flog = reflog --pretty=format:'%C(bold cyan)%h%C(reset) %C(blue)%cd %C(bold green)%s %C(bold cyan)%an%Creset%C(bold red)%d' --abbrev-commit --date=short
+  ss = status
+
+[rebase]
+  autosquash = true
+[branch]
+  autosetuprebase = always
