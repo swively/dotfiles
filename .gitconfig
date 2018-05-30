@@ -5,7 +5,7 @@
   user = swively
 [core]
 	editor = vim
-	excludesfile = /home/mike/.gitignore_global
+	excludesfile = /Users/mikey/.gitignore_global
 [alias]
   lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cd) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
   pr = "!f() { git log --merges --ancestry-path --oneline $1..master | grep 'pull request' | tail -n1 | awk '{ print $5 }'; }; f"

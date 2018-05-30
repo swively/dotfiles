@@ -53,7 +53,7 @@ alias gcb="git checkout -b "
 alias gco="git checkout "
 alias berc="be rails c"
 
-export PATH=/home/mike/bin:$PATH
+export PATH="/usr/local/Cellar:/usr/local/bin:/home/mike/bin:/usr/local/opt/postgresql@9.6/bin:/bin:$PATH"
 
 source ~/.zsh/utils.zsh
 source ~/.zsh/prompt.zsh

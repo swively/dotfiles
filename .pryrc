@@ -34,7 +34,3 @@ end
 Pry::Commands.block_command "set-count", "adjust stock of an item" do |variant, amount|
   target.eval("#{variant}.primary_stock_item.set_count_on_hand(#{amount})")
 end
-
-Pry::Commands.block_command "say-hi" do |name|
-  output.puts "hi #{name}"
-end
