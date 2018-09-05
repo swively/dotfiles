@@ -23,6 +23,10 @@ Pry::Commands.block_command "mikey", "find mike" do
   target.eval("mike = Spree::User.find_by(email: 'mike@stembolt.com')")
 end
 
+Pry::Commands.block_command "getadmin", "find admin" do
+  target.eval("admin = Spree::User.find_by(email: 'admin@juul.com')")
+end
+
 Pry::Commands.block_command "ordo", "find order" do |id, order_name|
   target.eval("#{order_name} = Spree::Order.find #{id}")
 end

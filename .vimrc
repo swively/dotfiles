@@ -2,6 +2,7 @@ set nocompatible              " be iMproved, required
 filetype off                  " required
 
 set number
+set ruler
 set equalalways
 set clipboard=unnamed,unnamedplus
 " set the runtime path to include Vundle and initialize
@@ -58,6 +59,20 @@ set expandtab
 set tabstop=2
 set shiftwidth=2
 set laststatus=2
+set backspace=indent,eol,start
+
+" 'normal' vim stuff
+if !has('nvim')
+  set nocompatible
+  set autoread
+  set backspace=indent,eol,start
+  set encoding=utf-8
+  set history=1000
+  set laststatus=2
+  set ttyfast
+  set incsearch
+  set hlsearch
+endif
 
 function! FzyCommand(choice_command, vim_command)
   try

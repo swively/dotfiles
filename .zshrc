@@ -6,7 +6,7 @@ set -o vi
 export EDITOR=vi
 export VISUAL=vi
 
-export BROWSER=google-chrome
+export BROWSER="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
 # Keep 1000 lines of history within the shell and save it to ~/.zsh_history:
 HISTSIZE=1000000
 SAVEHIST=1000000
@@ -52,8 +52,17 @@ alias gpum="git pull upstream master"
 alias gcb="git checkout -b "
 alias gco="git checkout "
 alias berc="be rails c"
+alias gpfb="git push --force-with-lease origin `git rev-parse --abbrev-ref HEAD`"
+alias gca='git commit --amend --no-edit'
+alias delete_merged_branches='git branch --merged | egrep -v "(^\*|master|dev)" | xargs git branch -d'
 
-export PATH="/usr/local/Cellar:/usr/local/bin:/home/mike/bin:/usr/local/opt/postgresql@9.6/bin:/bin:$PATH"
+alias awshit="source ~/.juul/aws-environment.sh"
+alias stageme="env-secrets-manager --secret-id staging/juulio/devreadonly/v1 bundle exec rails c"
+
+export PATH="/usr/local/bin:/home/mike/bin:/usr/local/opt/postgresql@9.6/bin:/bin:$PATH"
 
 source ~/.zsh/utils.zsh
 source ~/.zsh/prompt.zsh
+
+eval "$(direnv hook zsh)"
+eval "$(nodenv init -)"
