@@ -7,6 +7,9 @@
 	editor = vim
 	excludesfile = /Users/mikey/.gitignore_global
 [alias]
+  l = log --graph --pretty=format:'%h -%d %s (%cr) <%an>' --abbrev-commit --date=relative
+  ff = "!f() { git commit --fixup=`git l -l 10 | fzy | cut -f2 -d ' '`; }; f"
+  aa = rebase -i --autosquash
   lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cd) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
   pr = "!f() { git log --merges --ancestry-path --oneline $1..master | grep 'pull request' | tail -n1 | awk '{ print $5 }'; }; f"
   c = commit -v
@@ -24,3 +27,8 @@
   autosquash = true
 [branch]
   autosetuprebase = always
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true

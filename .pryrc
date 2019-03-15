@@ -20,7 +20,11 @@ if defined?(Rails) && Rails.env
 end
 
 Pry::Commands.block_command "mikey", "find mike" do
-  target.eval("mike = Spree::User.find_by(email: 'mike@stembolt.com')")
+  target.eval("mike = Spree::User.find_by(email: 'mconlin@juul.com')")
+end
+
+Pry::Commands.block_command "passav", "pass av for mconlin@example.com" do
+  target.eval("load '~/pass_av.rb'; pass_av('mconlin@example.com')")
 end
 
 Pry::Commands.block_command "getadmin", "find admin" do
