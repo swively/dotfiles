@@ -22,6 +22,10 @@
   s = status -s
   flog = reflog --pretty=format:'%C(bold cyan)%h%C(reset) %C(blue)%cd %C(bold green)%s %C(bold cyan)%an%Creset%C(bold red)%d' --abbrev-commit --date=short
   ss = status
+  mast = checkout master
+  last = checkout -
+  laster = checkout @{-2}
+  resetauthor = rebase master -i --exec "git commit --amend --no-edit --reset-author"
 
 [rebase]
   autosquash = true

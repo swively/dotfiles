@@ -1,3 +1,4 @@
+
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
@@ -19,7 +20,6 @@ Plugin 'vim-ruby/vim-ruby'
 Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-eunoch'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'thoughtbot/vim-rspec'
 Plugin 'int3/vim-extradite'
@@ -90,6 +90,8 @@ endfunction
 nnoremap <leader>e :call FzyCommand("ag . --silent -l -g ''", ":e")<cr>
 nnoremap <leader>v :call FzyCommand("ag . --silent -l -g ''", ":vs")<cr>
 nnoremap <leader>s :call FzyCommand("ag . --silent -l -g ''", ":sp")<cr>
+nnoremap <leader>h :call FzyCommand("ag . --silent -l -g ''", ":sp")<cr>
+nnoremap <leader>g :call FzyCommand("ag . -l -g '' $(bundle show $(bundle list \| tail -n +2 \| cut -f 4 -d' ' \| fzy) \| tail -1)", ":vs")<cr>
 
 " MULTIPURPOSE TAB KEY
 " Indent if we're at the beginning of a line. Else, do completion.
@@ -196,3 +198,4 @@ nmap <silent> <leader>mw :call MarkWindowSwap()<CR>
 nmap <silent> <leader>pw :call DoWindowSwap()<CR>
 
 nnoremap <leader>g :call FzyCommand("ag . -l -g '' $(bundle show $(bundle list \| tail -n +2 \| cut -f 4 -d' ' \| fzy) \| tail -1)", ":vs")<cr>
+

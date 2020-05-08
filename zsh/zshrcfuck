@@ -73,8 +73,8 @@ export PATH="/usr/local/bin:/home/mike/bin:/usr/local/opt/postgresql@9.6/bin:/bi
 source ~/.zsh/utils.zsh
 source ~/.zsh/prompt.zsh
 
-eval "$(direnv hook zsh)"
-eval "$(nodenv init -)"
+# eval "$(direnv hook zsh)"
+# eval "$(nodenv init -)"
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
