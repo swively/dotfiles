@@ -38,7 +38,7 @@ zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
 source /usr/local/share/chruby/chruby.sh
 source /usr/local/share/chruby/auto.sh
-chruby ruby-2.5.1
+chruby ruby-2.5.7
 
 alias ls="ls --color=auto"
 alias lsa="ls -al"
@@ -76,3 +76,7 @@ source ~/.zsh/prompt.zsh
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
 export PATH="/usr/local/opt/node@12/bin:$PATH"
+
+# fnm
+export PATH=/Users/mike/.fnm:$PATH
+eval "`fnm env --multi`"
