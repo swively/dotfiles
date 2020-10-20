@@ -19,6 +19,11 @@ if defined?(Rails) && Rails.env
   extend Rails::ConsoleMethods
 end
 
+
+Pry::Commands.command /^$/, "repeat last command" do
+    _pry_.run_command Pry.history.to_a.last
+end
+
 Pry::Commands.block_command "mikey", "find mike" do
   target.eval("mike = Spree::User.find_by(email: 'mconlin@juul.com')")
 end
