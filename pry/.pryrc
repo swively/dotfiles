@@ -25,15 +25,7 @@ Pry::Commands.command /^$/, "repeat last command" do
 end
 
 Pry::Commands.block_command "mikey", "find mike" do
-  target.eval("mike = Spree::User.find_by(email: 'mconlin@juul.com')")
-end
-
-Pry::Commands.block_command "passav", "pass av for mconlin@example.com" do
-  target.eval("load '~/pass_av.rb'; pass_av('mconlin@example.com')")
-end
-
-Pry::Commands.block_command "getadmin", "find admin" do
-  target.eval("admin = Spree::User.find_by(email: 'admin@juul.com')")
+  target.eval("mike = Spree::User.find_by(email: 'mike@super.gd')")
 end
 
 Pry::Commands.block_command "ordo", "find order" do |id, order_name|
