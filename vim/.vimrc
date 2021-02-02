@@ -6,6 +6,8 @@ set number
 set ruler
 set equalalways
 set clipboard=unnamed,unnamedplus
+set splitbelow
+set splitright
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
