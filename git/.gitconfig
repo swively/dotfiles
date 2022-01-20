@@ -20,6 +20,7 @@
   ds = diff --color --staged
   rim = rebase -i master
   s = status -s
+  ad = "!f() { git add `git s | fzy | awk '{ print $2 }'`; }; f"
   flog = reflog --pretty=format:'%C(bold cyan)%h%C(reset) %C(blue)%cd %C(bold green)%s %C(bold cyan)%an%Creset%C(bold red)%d' --abbrev-commit --date=short
   ss = status
   mast = checkout master
