@@ -1,4 +1,3 @@
-
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
@@ -13,9 +12,10 @@ call vundle#begin()
 "call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
-Plugin 'VundleVim/Vundle.vim'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-commentary'
@@ -32,9 +32,11 @@ Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'mxw/vim-jsx'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'keith/rspec.vim'
+Plugin 'vim-airline/vim-airline-themes'
+
+call vundle#end()            " required
 
 set noswapfile
-call vundle#end()            " required
 filetype plugin indent on    " required
 set background=dark
 filetype plugin on
