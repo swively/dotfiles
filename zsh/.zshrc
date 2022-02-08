@@ -56,34 +56,17 @@ alias delete_merged_branches='git branch --merged | egrep -v "(^\*|master|dev)" 
 
 alias deathtoservers='kill -9 $(lsof -i tcp:3000 -t)'
 
-alias awshit="source ~/.juul/aws-environment.sh"
-alias stage-console="switch-acct dev; env-secrets-manager --secret-id staging/juulio/devreadonly/v1 bundle exec rails c"
-alias prod-console="switch-acct prod; env-secrets-manager --secret-id prod/juulio/devreadonly/v1 bundle exec rails c"
-
-alias migos="be rake db:migrate; be rake db:test:prepare"
-
-function agac() {
-  ag "$1" app/javascript/apps/account/
-}
-
-
 export PATH="/usr/local/bin:/home/mike/bin:/usr/local/opt/postgresql@9.6/bin:/bin:$PATH"
 
 source ~/.zsh/utils.zsh
 source ~/.zsh/prompt.zsh
 
-eval "$(direnv hook zsh)"
-eval "$(nodenv init -)"
-
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
-export PATH="/usr/local/opt/node@12/bin:$PATH"
+# enable chruby
+source /usr/local/share/chruby/chruby.sh
+source /usr/local/share/chruby/auto.sh
+chruby ruby-3.1.0
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+# export SDKMAN_DIR="$HOME/.sdkman"
+# [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 export PATH="/usr/local/opt/node@14/bin:$PATH"
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
