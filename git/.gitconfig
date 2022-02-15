@@ -5,7 +5,7 @@
   user = swively
 [core]
 	editor = vim
-	excludesfile = /Users/mikey/.gitignore_global
+	excludesfile = /Users/mike/.gitignore_global
 [alias]
   l = log --graph --pretty=format:'%h -%d %s (%cr) <%an>' --abbrev-commit --date=relative
   ff = "!f() { git commit --fixup=`git l -l 10 | fzy | cut -f2 -d ' '`; }; f"
