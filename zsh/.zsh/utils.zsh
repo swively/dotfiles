@@ -16,6 +16,8 @@ function f() { ag --nocolor -l -g "$1" "${2:-.}"  }
 # Find and replace using sed and silver!
 function replace() { ag -l --nocolor "$1" "${3:-.}" | xargs sed -i -e "s/$1/$2/g" }
 
+function sha { git lg | fzy | awk '{ print $2 }' }
+
 ###########
 # Aliases #
 ###########

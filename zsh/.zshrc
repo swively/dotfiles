@@ -53,6 +53,7 @@ alias berc="be rails c"
 alias gpfb="git push --force-with-lease origin `git rev-parse --abbrev-ref HEAD`"
 alias gca='git commit --amend --no-edit'
 alias delete_merged_branches='git branch --merged | egrep -v "(^\*|master|dev)" | xargs git branch -d'
+alias ypw='yarn prettier --write $(git diff --name-only)'
 
 alias deathtoservers='kill -9 $(lsof -i tcp:3000 -t)'
 
@@ -67,6 +68,6 @@ source /usr/local/share/chruby/auto.sh
 chruby ruby-3.1.0
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-# export SDKMAN_DIR="$HOME/.sdkman"
-# [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 export PATH="/usr/local/opt/node@16/bin:$PATH"
