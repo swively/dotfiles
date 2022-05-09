@@ -18,6 +18,8 @@ function replace() { ag -l --nocolor "$1" "${3:-.}" | xargs sed -i -e "s/$1/$2/g
 
 function sha { git lg | fzy | awk '{ print $2 }' }
 
+function ypw() { yarn prettier --write `git s | fzy | awk '{ print $2 }'` }
+
 ###########
 # Aliases #
 ###########

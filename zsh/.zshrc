@@ -53,7 +53,6 @@ alias berc="be rails c"
 alias gpfb="git push --force-with-lease origin `git rev-parse --abbrev-ref HEAD`"
 alias gca='git commit --amend --no-edit'
 alias delete_merged_branches='git branch --merged | egrep -v "(^\*|master|dev)" | xargs git branch -d'
-alias ypw='yarn prettier --write $(git diff --name-only)'
 
 alias deathtoservers='kill -9 $(lsof -i tcp:3000 -t)'
 
