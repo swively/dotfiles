@@ -31,6 +31,7 @@
   laster = checkout @{-2}
   resetauthor = rebase master -i --exec "git commit --amend --no-edit --reset-author"
   lintall = rebase master -i -x "yarn lint:fix && yarn prettier:write && git add . && git rebase --continue"
+  pom = pull origin master
 
 [rebase]
   autosquash = true
