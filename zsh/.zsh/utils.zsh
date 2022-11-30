@@ -20,6 +20,8 @@ function sha { git lg | fzy | awk '{ print $2 }' }
 
 function ypw() { yarn prettier --write `git s | fzy | awk '{ print $2 }'` }
 
+function yt() { yarn test `git s | fzy | awk '{ print $2 }'` }
+
 ###########
 # Aliases #
 ###########
