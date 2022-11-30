@@ -23,6 +23,7 @@
   fol = "!f() { git lg --follow `git s | fzy | awk '{ print $2 }'`; }; f"
   sh = "!f() { git show `git lg | fzy | awk '{ print $2 }'`; }; f"
   co = "!f() { git checkout `git s | fzy | awk '{ print $2 }'`; }; f"
+  br = "!f() { git checkout `git branch | fzy | awk '{ print $1 }'`; }; f"
   flog = reflog --pretty=format:'%C(bold cyan)%h%C(reset) %C(blue)%cd %C(bold green)%s %C(bold cyan)%an%Creset%C(bold red)%d' --abbrev-commit --date=short
   ss = status
   mast = checkout master
