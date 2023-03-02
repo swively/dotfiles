@@ -53,6 +53,7 @@ alias berc="be rails c"
 alias gpfb="git push --force-with-lease origin `git rev-parse --abbrev-ref HEAD`"
 alias gca='git commit --amend --no-edit'
 alias delete_merged_branches='git branch --merged | egrep -v "(^\*|master|dev)" | xargs git branch -d'
+alias upgrade_my_fucking_plugin='git mast && git pom && cd frontend && yarn install && yarn build && cd .. && ./gradlew pluginUpgrade'
 
 alias deathtoservers='kill -9 $(lsof -i tcp:3000 -t)'
 
