@@ -35,6 +35,7 @@
   resetauthor = rebase master -i --exec "git commit --amend --no-edit --reset-author"
   lintall = rebase master -i -x "yarn lint:fix && yarn prettier:write && git add . && git rebase --continue"
   pom = pull origin master
+  pfb = "!f() { git push --force-with-lease origin `git rev-parse --abbrev-ref HEAD`; }; f"
 
 [rebase]
   autosquash = true
