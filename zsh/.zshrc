@@ -101,5 +101,29 @@ export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
 export NVM_DIR="$HOME/.nvm"
-[ -s "/usr/local/opt/nvm/nvm.sh" ] && \. "/usr/local/opt/nvm/nvm.sh"
-[ -s "/usr/local/opt/nvm/etc/bash_completion" ] && \. "/usr/local/opt/nvm/etc/bash_completion"
+
+
+# Only load NVM when it's first used
+load_nvm() {
+  [ -s "/usr/local/opt/nvm/nvm.sh" ] && \. "/usr/local/opt/nvm/nvm.sh"
+  [ -s "/usr/local/opt/nvm/etc/bash_completion" ] && \. "/usr/local/opt/nvm/etc/bash_completion"
+}
+
+# Create a function that defers nvm execution until it's needed
+nvm() {
+  unset -f nvm
+  load_nvm
+  nvm "$@"
+}
+
+node() {
+  unset -f node
+  load_nvm
+  node "$@"
+}
+
+npm() {
+  unset -f npm
+  load_nvm
+  npm "$@"
+}
