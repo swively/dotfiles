@@ -62,10 +62,37 @@ export PATH="/usr/local/bin:/home/mike/bin:/usr/local/opt/postgresql@16/bin:/bin
 source ~/.zsh/utils.zsh
 source ~/.zsh/prompt.zsh
 
-# enable chruby
-source /usr/local/share/chruby/chruby.sh
-source /usr/local/share/chruby/auto.sh
-chruby ruby-3.1.0
+
+# Function to load chruby only when needed
+load_chruby() {
+  source /usr/local/share/chruby/chruby.sh
+  source /usr/local/share/chruby/auto.sh
+  chruby ruby-3.1.0
+}
+
+chruby() {
+  unset -f chruby
+  load_chruby
+  chruby "$@"
+}
+
+ruby() {
+  unset -f ruby
+  load_chruby
+  ruby "$@"
+}
+
+gem() {
+  unset -f gem
+  load_chruby
+  gem "$@"
+}
+
+bundle() {
+  unset -f bundle
+  load_chruby
+  bundle "$@"
+}
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
