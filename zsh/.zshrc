@@ -57,7 +57,7 @@ alias upgrade_my_fucking_plugin='git mast && git pom && cd frontend && yarn inst
 
 alias deathtoservers='kill -9 $(lsof -i tcp:3000 -t)'
 
-export PATH="/usr/local/bin:/home/mike/bin:/usr/local/opt/postgresql@9.6/bin:/bin:$PATH"
+export PATH="/usr/local/bin:/home/mike/bin:/usr/local/opt/postgresql@16/bin:/bin:$PATH"
 
 source ~/.zsh/utils.zsh
 source ~/.zsh/prompt.zsh
