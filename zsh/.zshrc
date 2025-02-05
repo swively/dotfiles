@@ -96,12 +96,40 @@ bundle() {
   bundle "$@"
 }
 
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+
 export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+# Function to load SDKMAN! only when needed
+load_sdkman() {
+  [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+}
+
+sdk() {
+  unset -f sdk
+  load_sdkman
+  sdk "$@"
+}
+
+java() {
+  unset -f java
+  load_sdkman
+  java "$@"
+}
+
+mvn() {
+  unset -f mvn
+  load_sdkman
+  mvn "$@"
+}
+
+gradle() {
+  unset -f gradle
+  load_sdkman
+  gradle "$@"
+}
+
 
 export NVM_DIR="$HOME/.nvm"
-
 
 # Only load NVM when it's first used
 load_nvm() {
