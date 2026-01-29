@@ -11,14 +11,14 @@
   ff = "!f() { git commit --fixup=`git l -l 10 | fzy | cut -f2 -d ' '`; }; f"
   aa = rebase -i --autosquash
   lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cd) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
-  pr = "!f() { git log --merges --ancestry-path --oneline $1..master | grep 'pull request' | tail -n1 | awk '{ print $5 }'; }; f"
+  pr = "!f() { git log --merges --ancestry-path --oneline $1..main | grep 'pull request' | tail -n1 | awk '{ print $5 }'; }; f"
   c = commit -v
   ca = commit -v --amend
   cb = checkout -b
   d = diff --color
   ds = diff --color --staged
-  rim = rebase -i master
-  s = status -s
+  rim = rebase -i main
+  s = status -su
   ad = "!f() { git add `git s | fzy | awk '{ print $2 }'`; }; f"
   fol = "!f() { git lg --follow `git s | fzy | awk '{ print $2 }'`; }; f"
   sh = "!f() { git show `git lg | fzy | awk '{ print $2 }'`; }; f"
@@ -27,14 +27,15 @@
   dbr = "!f() { git branch -D `git branch | fzy | awk '{ print $1 }'`; }; f"
   flog = reflog --pretty=format:'%C(bold cyan)%h%C(reset) %C(blue)%cd %C(bold green)%s %C(bold cyan)%an%Creset%C(bold red)%d' --abbrev-commit --date=short
   ss = status
-  mast = checkout master
+  mast = checkout main
+  main = checkout main
   last = checkout -
-  msat = checkout master
+  msat = checkout main
   lsat = checkout -
   laster = checkout @{-2}
-  resetauthor = rebase master -i --exec "git commit --amend --no-edit --reset-author"
-  lintall = rebase master -i -x "yarn lint:fix && yarn prettier:write && git add . && git rebase --continue"
-  pom = pull origin master
+  resetauthor = rebase main -i --exec "git commit --amend --no-edit --reset-author"
+  lintall = rebase main -i -x "yarn lint:fix && yarn prettier:write && git add . && git rebase --continue"
+  pom = pull origin main
   pfb = "!f() { git push --force-with-lease origin `git rev-parse --abbrev-ref HEAD`; }; f"
 
 [rebase]
@@ -46,3 +47,5 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+[init]
+	defaultBranch = main
