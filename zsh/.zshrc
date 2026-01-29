@@ -57,77 +57,8 @@ alias upgrade_my_fucking_plugin='git mast && git pom && cd frontend && yarn inst
 
 alias deathtoservers='kill -9 $(lsof -i tcp:3000 -t)'
 
-alias seam-admin='java -jar ~/.local/bin/saaslink-admin.jar'
-
-export PATH="/usr/local/bin:/home/mike/bin:/usr/local/opt/postgresql@16/bin:/bin:$PATH"
-
 source ~/.zsh/utils.zsh
 source ~/.zsh/prompt.zsh
-
-
-# Function to load chruby only when needed
-load_chruby() {
-  source /usr/local/share/chruby/chruby.sh
-  source /usr/local/share/chruby/auto.sh
-  chruby ruby-3.1.0
-}
-
-chruby() {
-  unset -f chruby
-  load_chruby
-  chruby "$@"
-}
-
-ruby() {
-  unset -f ruby
-  load_chruby
-  ruby "$@"
-}
-
-gem() {
-  unset -f gem
-  load_chruby
-  gem "$@"
-}
-
-bundle() {
-  unset -f bundle
-  load_chruby
-  bundle "$@"
-}
-
-
-export SDKMAN_DIR="$HOME/.sdkman"
-
-# Function to load SDKMAN! only when needed
-load_sdkman() {
-  [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
-}
-
-sdk() {
-  unset -f sdk
-  load_sdkman
-  sdk "$@"
-}
-
-java() {
-  unset -f java
-  load_sdkman
-  java "$@"
-}
-
-mvn() {
-  unset -f mvn
-  load_sdkman
-  mvn "$@"
-}
-
-gradle() {
-  unset -f gradle
-  load_sdkman
-  gradle "$@"
-}
-
 
 export NVM_DIR="$HOME/.nvm"
 
@@ -155,3 +86,28 @@ npm() {
   load_nvm
   npm "$@"
 }
+
+# -------------------------------
+# BASE PATH (CLEAN)
+# -------------------------------
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/.local/bin"
+
+# -------------------------------
+# Optional tools not managed by mise
+# -------------------------------
+
+# Postgres 16
+export PATH="/usr/local/opt/postgresql@16/bin:$PATH"
+
+# Yarn global binaries
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
+eval "$(direnv hook zsh)"
+eval "$(mise activate zsh)"
+
+# bun completions
+[ -s "/Users/mike/.bun/_bun" ] && source "/Users/mike/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
