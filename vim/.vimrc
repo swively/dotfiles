@@ -87,11 +87,15 @@ function! FzyCommand(choice_command, vim_command)
   endif
 endfunction
 
-nnoremap <leader>e :call FzyCommand("ag . --silent -l -g ''", ":e")<cr>
-nnoremap <leader>v :call FzyCommand("ag . --silent -l -g ''", ":vs")<cr>
-nnoremap <leader>s :call FzyCommand("ag . --silent -l -g ''", ":sp")<cr>
-nnoremap <leader>h :call FzyCommand("ag . --silent -l -g ''", ":sp")<cr>
+nnoremap <leader>e :call FzyCommand("find . -type f -not -path '*/.git/*' -not -path '*/node_modules/*'", ":e")<cr>
+nnoremap <leader>v :call FzyCommand("find . -type f -not -path '*/.git/*' -not -path '*/node_modules/*'", ":vs")<cr>
+nnoremap <leader>s :call FzyCommand("find . -type f -not -path '*/.git/*' -not -path '*/node_modules/*'", ":sp")<cr>
+nnoremap <leader>h :call FzyCommand("find . -type f -not -path '*/.git/*' -not -path '*/node_modules/*'", ":sp")<cr>
 nnoremap <leader>g :call FzyCommand("ag . -l -g '' $(bundle show $(bundle list \| tail -n +2 \| cut -f 4 -d' ' \| fzy) \| tail -1)", ":vs")<cr>
+
+nnoremap <M-D-Left> :tabprevious<CR>
+nnoremap <M-D-Right> :tabnext<CR>
+
 
 " MULTIPURPOSE TAB KEY
 " Indent if we're at the beginning of a line. Else, do completion.
