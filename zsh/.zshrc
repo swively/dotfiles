@@ -46,16 +46,13 @@ alias gcomv="git commit --verbose --no-verify"
 alias wipit="git add -u; git commit --no-verify -m 'wip'"
 alias rebon="git add -u; git rebase --continue"
 alias tmux="tmux -2"
-alias gpum="git pull upstream master"
 alias gcb="git checkout -b "
 alias gco="git checkout "
 alias berc="be rails c"
 alias gpfb="git push --force-with-lease origin `git rev-parse --abbrev-ref HEAD`"
 alias gca='git commit --amend --no-edit'
 alias delete_merged_branches='git branch --merged | egrep -v "(^\*|master|dev)" | xargs git branch -d'
-alias upgrade_my_fucking_plugin='git mast && git pom && cd frontend && yarn install && yarn build && cd .. && ./gradlew pluginUpgrade'
 
-alias deathtoservers='kill -9 $(lsof -i tcp:3000 -t)'
 
 source ~/.zsh/utils.zsh
 source ~/.zsh/prompt.zsh
@@ -87,17 +84,7 @@ npm() {
   npm "$@"
 }
 
-# -------------------------------
-# BASE PATH (CLEAN)
-# -------------------------------
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/.local/bin"
-
-# -------------------------------
-# Optional tools not managed by mise
-# -------------------------------
-
-# Postgres 16
-export PATH="/usr/local/opt/postgresql@16/bin:$PATH"
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/.local/bin:$PATH"
 
 # Yarn global binaries
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
