@@ -52,6 +52,7 @@ alias berc="be rails c"
 alias gpfb="git push --force-with-lease origin `git rev-parse --abbrev-ref HEAD`"
 alias gca='git commit --amend --no-edit'
 alias delete_merged_branches='git branch --merged | egrep -v "(^\*|master|dev)" | xargs git branch -d'
+alias ag='rg'
 
 
 source ~/.zsh/utils.zsh
@@ -98,3 +99,14 @@ eval "$(mise activate zsh)"
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+# opencode
+export PATH=/Users/mike/.opencode/bin:$PATH
+
+# pnpm
+export PNPM_HOME="/Users/mike/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
