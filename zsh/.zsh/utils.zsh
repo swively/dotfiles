@@ -28,10 +28,15 @@ function yt() { yarn test `git s | fzy | awk '{ print $2 }'` }
 
 # Misc
 
-alias bx='bundle exec'
+d() {
+  local sel=~/TBG/$(ls ~/TBG | fzy)
+  local first=$(ls -d "$sel"/*/ 2>/dev/null | head -1)
+  cd "${first:-$sel}"
+}
+
 alias grep='grep --color=auto'
 alias ls='ls -G'
-alias c='cd ~/code/saasroot/$(ls ~/code/saasroot | fzy)'
+alias c='cd ~/TBG/$(ls ~/TBG | fzy)'
 alias tms="tmux attach -t"
 alias tm='tmux switch -t "`tmux list-sessions | cut -d':' -f1 | fzy`"'
 alias myip="ifconfig | sed -En 's/127.0.0.1//;s/.*inet (addr:)?(([0-9]*\.){3}[0-9]*).*/\2/p'"
